@@ -1,3 +1,5 @@
+"use client"
+
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { UserRole } from '@prisma/client'
@@ -23,8 +25,8 @@ interface UseAuthReturn {
   user: AuthUser | undefined
   session: Session | null
   isAuthenticated: boolean
-  loading: boolean // Added this property
-  isLoading: boolean // Keep this for backward compatibility
+  loading: boolean
+  isLoading: boolean
   isPatient: boolean
   isDoctor: boolean
   isAdmin: boolean
@@ -104,8 +106,8 @@ export const useAuth = (): UseAuthReturn => {
     user,
     session,
     isAuthenticated,
-    loading: isLoading, // Added this for the Dashboard component
-    isLoading, // Keep this for backward compatibility
+    loading: isLoading,
+    isLoading,
     isPatient,
     isDoctor,
     isAdmin,
